@@ -1,0 +1,39 @@
+version: "3.8"
+services: 
+  backend:
+    build: app/backend
+    command: uvicorn main:app --host 0.0.0.0 --port 8086
+    volumes:
+      - ./app/backend:/usr/src/app/
+    ports:
+      - 8000:8086
+    networks:
+      - network
+    container_name: backend
+    depends_on:
+      - redis
+    stdin_open: true
+    tty: true
+    # environment:
+    #   REDIS_HOST: cache
+    #   REDIS_PORT: 6379
+    #   REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+
+  redis:
+    container_name: redis
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    expose: 
+      - "6379"
+    # command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes: 
+      - cache:/data
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  cache:
+    driver: local
