@@ -18,7 +18,7 @@ docker build -t catalog-api . -f Dockerfile
 ```
 3. Run the image:
 ```
-docker run -ti -p 8888:8086 catalog-api
+docker run -ti -p 8888:8088 catalog-api
 ```
 ## Features
 * Adding a task

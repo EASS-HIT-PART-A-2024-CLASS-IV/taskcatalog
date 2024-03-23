@@ -34,6 +34,9 @@ Access the backend API at: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 Utilizing FastAPI for efficient backend development.
 
+### Frontend
+
+Employing Streamlit for a clean and intuitive frontend experience.
 
 ### Database
 
@@ -42,6 +45,7 @@ The app utilizes Redis, serving as an in-memory data structure store, distribute
 ### Docker-compose
 
 1. Backend (FastAPI)
+2. Frontend (Streamlit)
 3. Database (Redis)
 
 ---

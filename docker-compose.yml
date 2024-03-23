@@ -2,11 +2,11 @@ version: "3.8"
 services: 
   backend:
     build: app/backend
-    command: uvicorn main:app --host 0.0.0.0 --port 8086
+    command: uvicorn main:app --host 0.0.0.0 --port 8088
     volumes:
       - ./app/backend:/usr/src/app/
     ports:
-      - 8000:8086
+      - 8000:8088
     networks:
       - network
     container_name: backend
@@ -18,6 +18,17 @@ services:
     #   REDIS_HOST: cache
     #   REDIS_PORT: 6379
     #   REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+
+  frontend:
+    build: app/frontend
+    command: streamlit run main.py --server.port 8080
+    volumes:
+      - ./app/frontend:/usr/src/app/
+    ports:
+      - 7000:8080
+    networks:
+      - network
+    container_name: frontend
 
   redis:
     container_name: redis
