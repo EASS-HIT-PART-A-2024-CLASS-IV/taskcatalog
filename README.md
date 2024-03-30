@@ -58,3 +58,7 @@ The app utilizes Redis, serving as an in-memory data structure store, distribute
 3. Run: `pytest`
 #### Results:
 `python app/backend/test_main.py`
+
+## Demo
+
+https://youtu.be/IhAyYt8fmh4

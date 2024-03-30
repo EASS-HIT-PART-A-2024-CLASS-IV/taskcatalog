@@ -50,7 +50,6 @@ if choice == "Create Task ✅":
         else:
             requests.post(f'{backend}catalog/', json=add_data)
             st.success("Added Task \"{}\" ✅".format(task))
-            st.balloons()
 
     response = requests.get(f"{backend}catalog/").json()
 
